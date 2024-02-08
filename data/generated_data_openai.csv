@@ -1,0 +1,16 @@
+,Policy_Id,Policy_Year,Make,Body_Style,Model_Year,Model_Color,Miles_Driven,Driver_Hair_Color,Years_Customer,Accident_Reported
+0,1,2023,Honda,sedan,2005,Red,15000,Black,5,1
+1,2,2023,Nissan,truck,2010,White,22000,Brown,2,1
+2,3,2023,Ford,convertible,2015,Blue,5000,Black,10,0
+3,4,2023,Subaru,suv,2020,Red,3000,Brown,8,0
+4,5,2023,Honda,sedan,2003,White,8000,Black,15,0
+5,6,2023,Nissan,truck,2008,Blue,25000,Brown,4,1
+6,7,2023,Ford,convertible,2012,Red,12000,Black,3,1
+7,8,2023,Subaru,suv,2018,White,4000,Brown,12,0
+8,9,2023,Honda,sedan,2004,Blue,19000,Black,7,0
+9,10,2023,Nissan,truck,2011,Red,21000,Brown,5,1
+10,11,2023,Ford,convertible,2016,White,7000,Black,9,0
+11,12,2023,Subaru,suv,2019,Blue,6000,Brown,11,0
+12,13,2023,Honda,sedan,2001,Red,14000,Black,2,1
+13,14,2023,Nissan,truck,2009,White,23000,Brown,1,1
+14,15,2023,Ford,convertible,2017,Blue,11000,Black,20,0
