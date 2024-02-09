@@ -1,7 +1,7 @@
 import pandas as pd
 import statsmodels.api as sm
 
-df = pd.read_csv('./data/generated_data.csv')
+df = pd.read_csv('./data/generated_data_numpy.csv')
 
 X = df.drop(['Accident_Reported', 'Policy_Id'], axis=1)
 y = df['Accident_Reported']
