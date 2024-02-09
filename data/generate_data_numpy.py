@@ -38,4 +38,4 @@ def calculate_accident_reported(row):
 df['Accident_Reported'] = df.apply(calculate_accident_reported, axis=1)
 
 # Write the dataset to a CSV file
-df.to_csv('./data/generated_data.csv', index=False)
+df.to_csv('./data/generated_data_numpy.csv', index=False)
