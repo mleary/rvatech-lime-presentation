@@ -1,3 +1,8 @@
+# project specific
+.DS_Store
+.vscode/
+data/*.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
