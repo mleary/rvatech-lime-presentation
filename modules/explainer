@@ -1,0 +1,22 @@
+import sklearn
+import numpy as np
+import pandas as pd
+import lime
+
+from lime import lime_tabular
+
+
+class Explainer:
+    def __init__(self, model, training_data, feature_names):
+        self.model = model
+        self.training_data = training_data
+        self.feature_names = feature_names
+        self.explainer = lime_tabular.LimeTabularExplainer(
+            self.training_data,
+            feature_names=self.feature_names,
+            class_names=['target'],
+            mode='classification'
+        )
+
+    def explain(self, data):
+        return self.explainer.explain_instance(data, self.model.predict_proba)
