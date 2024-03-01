@@ -1,17 +1,19 @@
 import pandas as pd
 import numpy as np
+import calendar
 
 # Define the size of the dataset
 size = 10000
 
 # Define the columns of the dataset
-columns = ['Policy_Id', 'Policy_Year', 'Make', 'Body_Style', 'Model_Year', 'Model_Color', 'Miles_Driven', 'Driver_Hair_Color', 'Years_Customer', 'Accident_Reported']
+columns = ['Policy_Id', 'Policy_Year', 'Policy_Month', 'Make', 'Body_Style', 'Model_Year', 'Model_Color', 'Miles_Driven', 'Driver_Hair_Color', 'Years_Customer', 'Accident_Reported']
 
 # Generate the dataset
 df = pd.DataFrame(columns=columns)
 
 df['Policy_Id'] = range(1, size + 1)
 df['Policy_Year'] = np.random.choice(range(2000, 2024), size)
+df['Policy_Month'] = np.random.choice(list(calendar.month_abbr[1:]), size)
 df['Make'] = np.random.choice(['Honda', 'Toyota', 'Subaru'], size)
 df['Body_Style'] = np.random.choice(['sedan', 'suv', 'truck'], size)
 df['Model_Year'] = np.random.choice(range(2000, 2024), size)
