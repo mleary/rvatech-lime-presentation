@@ -59,6 +59,7 @@ app.layout = html.Div([
 # Define callback to update table
 @app.callback(
     Output('table', 'data'),
+    Output('table', 'tooltip_data'),
     [Input('make-dropdown', 'value'),
      Input('month-dropdown', 'value'),
      Input('risk-dropdown', 'value')]
@@ -68,7 +69,13 @@ def update_table(selected_make, selected_month, selected_risk):
         filtered_df = df[(df['Make'] == selected_make) & (df['Policy_Month'] == selected_month)]
     else:
         filtered_df = df[(df['Make'] == selected_make) & (df['Policy_Month'] == selected_month) & (df['Risk_Assessment'] == selected_risk)]
-    return filtered_df.to_dict('records')
+    data = filtered_df.to_dict('records')
+    tooltip_data = [
+        {
+            'Risk_Assessment': {'value': str(d['Risk_Assessment']), 'type': 'markdown'}
+        } for d in data
+    ]
+    return data, tooltip_data
 
 # Run the app
 if __name__ == '__main__':
