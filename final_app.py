@@ -54,7 +54,7 @@ app.layout = html.Div([
         tooltip_duration=None
     )
     
-])
+], style={'white-space': 'pre-line'})
 
 # Define callback to update table
 @app.callback(
@@ -70,9 +70,22 @@ def update_table(selected_make, selected_month, selected_risk):
     else:
         filtered_df = df[(df['Make'] == selected_make) & (df['Policy_Month'] == selected_month) & (df['Risk_Assessment'] == selected_risk)]
     data = filtered_df.to_dict('records')
+
+    # Filter the explanations DataFrame
+    filtered_explanations = explanations[explanations['Policy_Id'].isin(filtered_df['Policy_Id'])]
+    
+    # Group by 'Policy_Id' and get the first three rows of each group
+    grouped_explanations = filtered_explanations.groupby('Policy_Id').apply(lambda x: x.head(3)).reset_index(drop=True)
+    # Create a dictionary where the keys are the 'Policy_Id' values and the values are the concatenated explanations
+    explanation_dict = grouped_explanations.groupby('Policy_Id')['feature'].apply(lambda x: '\n'.join(x)).to_dict()
+    
     tooltip_data = [
         {
-            'Risk_Assessment': {'value': str(d['Risk_Assessment']), 'type': 'markdown'}
+            #'Risk_Assessment': {'value': explanation_dict.get(d['Policy_Id'], ''), 'type': 'markdown'}
+            'Risk_Assessment': {
+                'value': "Top Three drivers for prediction:\n" + explanation_dict.get(d['Policy_Id'], ''),
+                'type': 'markdown'
+            }
         } for d in data
     ]
     return data, tooltip_data
