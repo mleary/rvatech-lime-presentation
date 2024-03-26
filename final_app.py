@@ -17,8 +17,8 @@ app = dash.Dash(__name__)
 
 # Define the layout
 app.layout = html.Div([
-    html.H1('Landers & Leary Insurance - Policy System'),
-    html.H3('Hello Dustin, please see a list of upcoming renewals and their risk assessment.'),
+    html.H1('LIME Insurance - Policy System'),
+    html.H3('Hello Matt, please see a list of upcoming renewals and their risk assessment.'),
     html.Hr(style={'borderWidth': "5vh", "width": "100%", "backgroundColor": "#AB87FF","opacity": "unset", "opacity":"1"}),
     dcc.Dropdown(
         id='make-dropdown',
